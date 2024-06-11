@@ -1,0 +1,10 @@
+#!/usr/bin/env zsh
+
+export DOTFILES_HOME="${HOME}/src/dotfiles"
+export HOMEBREW_BREWFILE="${DOTFILES_HOME}/brew/Brewfile"
+
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+brew bundle install --file "${HOMEBREW_BREWFILE}"
+
+ln -sf "${DOTFILES_HOME}/zshrc" "${HOME}/.zshrc"
